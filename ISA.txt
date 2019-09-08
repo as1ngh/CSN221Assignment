@@ -1,0 +1,40 @@
+mov r1,0  @int i
+mov r2,0  @int j
+mov r3,0  @int k
+mov r4,0  @int count
+.loop:
+    add r1,r1,1
+    mov r4,0
+    mov r2,0
+    .loop2:
+      mov r3,0
+      add r2,r2,1
+        .loop3:
+           add r3,r3,1
+           cmp r4,2
+           beq .terminate
+           mov r5,0
+           mul r5,r2,r2
+           mul r5,r5,r2
+           mov r6,0
+           mul r6,r3,r3
+           mul r6,r6,r3
+           add r5,r6,r5
+           cmp r5,r1
+           beq .equal
+           cmp r3,r1
+           beq .nextj
+           cmp r2,r1
+           beq.nexti
+        b.loop3
+.equal
+   add r4,r4,1
+   b.loop3
+   
+.nextj
+  b.loop2
+.nexti
+  b.loop
+.treminate:
+   exit  
+    
