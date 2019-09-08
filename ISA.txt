@@ -20,12 +20,12 @@ mov r4,0  @int count
            mul r6,r3,r3
            mul r6,r6,r3
            add r5,r6,r5
-           cmp r5,r1
-           beq .equal
+           cmp r5,r1      @ j*j*j+k*k*k==i
+             beq .equal
            cmp r3,r1
-           beq .nextj
+             beq .nextj
            cmp r2,r1
-           beq.nexti
+             beq.nexti
         b.loop3
 .equal
    add r4,r4,1
